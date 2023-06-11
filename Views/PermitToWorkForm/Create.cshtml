@@ -1,0 +1,93 @@
+﻿@model PermitToWorkSystem.Data.ViewModel.PermitToWorkVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h4 class="btn btn-success">Permit To WorkForm</h4>
+<hr />
+<div class="row" >
+    <div class="col-md-8 offset-2">
+        <form asp-action="Create" class="custom-background">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Project" class="control-label"></label>
+                <input asp-for="Project" class="form-control" />
+                <span asp-validation-for="Project" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationOfWork" class="control-label"></label>
+                <input asp-for="LocationOfWork" class="form-control" />
+                <span asp-validation-for="LocationOfWork" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentDescription" class="control-label"></label>
+                <textarea asp-for="EquipmentDescription" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="EquipmentDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Permit_Applicant" class="control-label"></label>
+                <input asp-for="Permit_Applicant" class="form-control" />
+                <span asp-validation-for="Permit_Applicant" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company" class="control-label"></label>
+                <input asp-for="Company" class="form-control" />
+                <span asp-validation-for="Company" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JSA_NO" class="control-label"></label>
+                <input asp-for="JSA_NO" class="form-control" />
+                <span asp-validation-for="JSA_NO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description_Of_Work" class="control-label"></label>
+                <textarea asp-for="Description_Of_Work" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Description_Of_Work" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration_Of_Work" class="control-label"></label>
+                <input asp-for="Duration_Of_Work" class="form-control" rows="4"></input>
+                <span asp-validation-for="Duration_Of_Work" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" type="date" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" type="date" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartTime" class="control-label"></label>
+                <input asp-for="StartTime" type="time" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndTime" class="control-label"></label>
+                <input asp-for="EndTime" type="time" class="form-control" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tools_Equipmet" class="control-label"></label>
+                <textarea asp-for="Tools_Equipmet" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Tools_Equipmet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" ></input>
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Submit Form" class="btn btn-success float-end" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

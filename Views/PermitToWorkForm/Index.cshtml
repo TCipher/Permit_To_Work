@@ -1,0 +1,101 @@
+﻿@model IEnumerable<PermitToWorkSystem.Models.PermitToWorkForm>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Project)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationOfWork)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Permit_Applicant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JSA_NO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description_Of_Work)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tools_Equipmet)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationOfWork)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EquipmentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Permit_Applicant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JSA_NO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_Of_Work)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tools_Equipmet)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PermitID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PermitID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PermitID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
