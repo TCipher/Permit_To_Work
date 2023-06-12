@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using Azure;
 using Microsoft.AspNetCore.Mvc;
@@ -20,23 +22,20 @@ namespace PermitToWorkSystem.Controllers
     {
         private readonly IPermitToWorkService _permitToWorkService;
         private readonly IEmailService _mailService;
-
-        public PermitToWorkFormController(IPermitToWorkService permitToWorkService, IEmailService mailService)
+        private readonly IEncryptDecryptService _encrypt;
+        public PermitToWorkFormController(IPermitToWorkService permitToWorkService, IEmailService mailService, IEncryptDecryptService encrypt)
         {
             _permitToWorkService = permitToWorkService;
             _mailService = mailService;
+           _encrypt = encrypt;
         }
 
-
         public IActionResult Create()
-        
-        
         {
             return View();
         }
 
         // POST: PermitToWorkForms/Create
-      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PermitToWorkVM permitToWorkVM)
@@ -46,34 +45,49 @@ namespace PermitToWorkSystem.Controllers
             {
                 return View(permitToWorkVM);
             }
-             var res =  await _permitToWorkService.AddPermitToWorkAsync(permitToWorkVM);
-           
-            var baseUrl = $"https://localhost:7269/PermitToWorkForm/PermitToWorkDetails/{res.PermitID}";
+
+            var res = await _permitToWorkService.AddPermitToWorkAsync(permitToWorkVM);
+
+            // Encrypt the ID using AES
+            var encryptedID = _encrypt.EncryptID(res.PermitID);
+
+            var baseUrl = $"https://localhost:7269/PermitToWorkForm/PermitToWorkDetails/{encryptedID}";
             var link = $"{baseUrl}";
-            var emailRequest = new EmailMessage(new string[] { ApproverEmail }, $"Permit To Work Request From {permitToWorkVM.Company}", $"use this link to view the request {link}");
+            var emailRequest = new EmailMessage(new string[] { ApproverEmail }, $"Permit To Work Request From {permitToWorkVM.Company}", $"Use this link to view the request: {link}");
             await _mailService.SendEmailAsync(emailRequest);
-           
+
             return RedirectToAction(nameof(FormSubmitted));
         }
 
-        public async Task<IActionResult> PermitToWorkDetails(int id)
+        public async Task<IActionResult> PermitToWorkDetails(string id)
         {
-                var permDetail = await _permitToWorkService.GetApplicantByIdAsync(id);
-                return View(permDetail);
-          
-        }
+            byte[] decodedBytes;
+            try
+            {
+                decodedBytes = Convert.FromBase64String(id);
+            }
+            catch (FormatException)
+            {
+                // Handle invalid Base64 string
+                return BadRequest();
+            }
+            // Decrypt the ID using AES
+            var decryptedID = _encrypt.DecryptID(id);
 
-        public async Task<IActionResult> FormSubmitted()
-        {
-            
-            return View();
+            if (!int.TryParse(decryptedID, out int permitID))
+            {
+                // Handle invalid ID
+                return BadRequest();
+            }
 
+            var permDetail = await _permitToWorkService.GetApplicantByIdAsync(permitID);
+            return View(permDetail);
         }
 
       
-
+        public async Task<IActionResult> FormSubmitted()
+        {
+            return View();
+        }
     }
-
-
 }
-

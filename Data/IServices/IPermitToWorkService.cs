@@ -10,7 +10,7 @@ namespace PermitToWorkSystem.Data.IServices
     {
         Task<PermitToWorkForm> AddPermitToWorkAsync(PermitToWorkVM data);
         Task<PermitToWorkForm> GetApplicantByIdAsync(int id);
-        Task<PermitToWorkForm> Approval(string model);
+       // Task<PermitToWorkForm> Approval(string model);
        
 
         Task<IEnumerable<PermitToWorkForm>> GetAllAsync();

@@ -39,10 +39,10 @@ namespace PermitToWorkSystem.Data.Service
             return newPermit;
         }
 
-        public Task<PermitToWorkForm> Approval(string model)
-        {
-            throw new NotImplementedException();
-        }
+        //public Task<PermitToWorkForm> Approval(string model)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public async Task<PermitToWorkForm> GetApplicantByIdAsync(int id)
         {

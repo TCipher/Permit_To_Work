@@ -14,13 +14,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
 });
-//builder.Services.AddScoped<IPermitToWorkService, PermitToWorkService>();
-//builder.Services.AddScoped<IEmailService, EmailService>();
-//builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
-//builder.Services.Configure<EmailConfiguration>(builder.Configuration.GetSection("EmailConfiguration")); // Register EmailConfiguration
-//builder.Services.AddScoped<IPermitToWorkService, PermitToWorkService>();
-//builder.Services.AddScoped<IEmailService, EmailService>();
-//builder.Services.Configure<EmailConfiguration>(builder.Configuration.GetSection("EmailConfiguration"));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -29,6 +23,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 builder.Services.AddScoped<IPermitToWorkService, PermitToWorkService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddSingleton<IEncryptDecryptService, EncryptDecryptService>();
 builder.Services.AddScoped<ISiteCheckerService, SiteCheckerService>();
 builder.Services.Configure<EmailConfiguration>(builder.Configuration.GetSection("EmailConfiguration"));
 // Add the following line to resolve the EmailConfiguration dependency for EmailService
