@@ -1,93 +1,240 @@
 ﻿@model PermitToWorkSystem.Data.ViewModel.PermitToWorkVM
+@using PermitToWorkSystem.Data.Enum
 
-@{
-    ViewData["Title"] = "Create";
-}
-<h4 class="btn btn-success">Permit To WorkForm</h4>
-<hr />
-<div class="row" >
-    <div class="col-md-8 offset-2">
-        <form asp-action="Create" class="custom-background">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Project" class="control-label"></label>
-                <input asp-for="Project" class="form-control" />
-                <span asp-validation-for="Project" class="text-danger"></span>
+<body>
+   
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2 cust sidebar-divider" >
+                <div class="pt-2 ml-0">
+                    <img src="/images/SP.png" width="80" height="80" class="color-change" alt="Company Logo">
+                </div>
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-user mr-2"></i>Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-file-alt mr-2"></i>Work Permit Application
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-envelope mr-2"></i>Emails
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-cogs mr-2"></i>Account Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="border-1">
+                    <div class="flex-column align-items-center">
+                        Need help?
+                    </div>
+                    <p>Our support is here for you</p>
+                    <div class="btn btn-outline-dark">
+                        Get help
+                    </div>
+                </div>
+                
             </div>
-            <div class="form-group">
-                <label asp-for="LocationOfWork" class="control-label"></label>
-                <input asp-for="LocationOfWork" class="form-control" />
-                <span asp-validation-for="LocationOfWork" class="text-danger"></span>
+            <div class="col-md-10">
+                 <nav class="navbar navbar-expand-lg justify-content-end">
+        <a class="navbar-brand cust" href="#">
+            <span class="notification-icon">
+                <i class="fas fa-bell"></i>
+            </span>
+           Ndefo Chuks
+            <span class="profile-icon">
+                <img src="/images/px.png" width="30" height="30" alt="Company Logo">
+            </span>
+            
+        </a>
+    </nav>
+    <hr />
+      <div class="col-md-10">
+                <form asp-action="Create" id="myForm">
+                <div asp-validation-summary="None" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        
+
+                        <div class="d-flex align-items-center justify-content-around">
+                            <div class="progress-circle active">1</div>
+                            <span style="font-size:10px;" class="mr-2">  Work permit</span>
+                            <hr style="width:100px;"/>
+                            <div class="progress-circle2">2</div>
+                            <span style="font-size:10px;">Additional work permit</span>
+                            <hr style="width:100px;">
+                            <div class="progress-circle2">3</div>
+                            <span style="font-size:10px;">Special Equipment</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col">
+                        <h3><strong>Work Permit Application</strong></h3>
+                    </div>
+                    <div class="col text-right">
+                        Permit No: 02/30/2023
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <label asp-for="LastName"></label>
+                        <input asp-for="LastName" class="form-control" id="lastname">
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="FirstName"></label>
+                        <input type="text" asp-for="FirstName" class="form-control" id="firstname">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <label asp-for="Project_Name"></label>
+                        <input type="text" asp-for="Project_Name" class="form-control" id="projectname">
+                            <span asp-validation-for="Project_Name" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="JSANO">JSA No:</label>
+                        <input type="text"  asp-for="JSANO" class="form-control" id="jsano">
+                        <span asp-validation-for="JSANO" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="CompanyName">Company Name:</label>
+                        <input type="text" asp-for="CompanyName" class="form-control" id="companyname">
+                            <span asp-validation-for="CompanyName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <label asp-for="CompanyAddress"></label>
+                        <input type="text" asp-for="CompanyAddress" class="form-control" id="companyaddress">
+                            <span asp-validation-for="CompanyAddress" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <label asp-for="Duration_Of_Work"></label>
+                        <div class="input-group">
+                            <select asp-for="Duration_Of_Work" asp-items="Html.GetEnumSelectList<DurationOfWork>()" class="custom-select" autofocus></select>
+                                <span asp-validation-for="Duration_Of_Work" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label asp-for="StartDate"></label>
+                        <div class="input-group">
+                            <input type="date" asp-for="StartDate" class="form-control" id="startdate">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label asp-for="EndDate"></label>
+                        <div class="input-group">
+                            <input type="date" asp-for="EndDate" class="form-control" id="enddate">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <label asp-for="Type_OF_Work"></label>
+                        <div class="input-group">
+                            <select asp-for="Type_OF_Work" asp-items="Html.GetEnumSelectList<TypeOfWork>()" class="custom-select" autofocus></select>
+                                <span asp-validation-for="Type_OF_Work" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label asp-for="StartTime"></label>
+                        <div class="input-group">
+                            <input type="time" asp-for="StartTime" class="form-control" id="starttime">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label asp-for="EndTime"></label>
+                        <div class="input-group">
+                            <input type="time" asp-for="EndTime" class="form-control" id="endtime">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <label asp-for="Equipment_To_Be_Used"></label>
+                        <textarea type="text" asp-for="Equipment_To_Be_Used" class="form-control" id="equipment"></textarea>
+                            <span asp-validation-for="Equipment_To_Be_Used" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label asp-for="Equipment_Description"></label>
+                        <textarea type="text" asp-for="Equipment_Description" class="form-control" id="description"></textarea>
+                            <span asp-validation-for="Equipment_Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="Accent" type="checkbox"  required>
+                                <label class="form-check-label" asp-for="Accent"></label>
+                                <span asp-validation-for="Accent" class="text-danger"></span>
+                            </div>
+
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                            <button type="button" class="btn btn-danger" onclick="clearForm()">Cancel</button>
+                    </div>
+                    <div class="col text-right">
+                            @*<button type="button" asp-action="Create" asp-controller="PermitToWorkForm" class="btn btn-secondary">Save to Draft</button>*@
+                            <input type="submit" value="Submit" class="btn btn-success" />
+                    </div>
+                </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="EquipmentDescription" class="control-label"></label>
-                <textarea asp-for="EquipmentDescription" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="EquipmentDescription" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Permit_Applicant" class="control-label"></label>
-                <input asp-for="Permit_Applicant" class="form-control" />
-                <span asp-validation-for="Permit_Applicant" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Company" class="control-label"></label>
-                <input asp-for="Company" class="form-control" />
-                <span asp-validation-for="Company" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="JSA_NO" class="control-label"></label>
-                <input asp-for="JSA_NO" class="form-control" />
-                <span asp-validation-for="JSA_NO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description_Of_Work" class="control-label"></label>
-                <textarea asp-for="Description_Of_Work" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="Description_Of_Work" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Duration_Of_Work" class="control-label"></label>
-                <input asp-for="Duration_Of_Work" class="form-control" rows="4"></input>
-                <span asp-validation-for="Duration_Of_Work" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StartDate" class="control-label"></label>
-                <input asp-for="StartDate" type="date" class="form-control" />
-                <span asp-validation-for="StartDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EndDate" class="control-label"></label>
-                <input asp-for="EndDate" type="date" class="form-control" />
-                <span asp-validation-for="EndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StartTime" class="control-label"></label>
-                <input asp-for="StartTime" type="time" class="form-control" />
-                <span asp-validation-for="StartTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EndTime" class="control-label"></label>
-                <input asp-for="EndTime" type="time" class="form-control" />
-                <span asp-validation-for="EndTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tools_Equipmet" class="control-label"></label>
-                <textarea asp-for="Tools_Equipmet" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="Tools_Equipmet" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EmailAddress" class="control-label"></label>
-                <input asp-for="EmailAddress" class="form-control" ></input>
-                <span asp-validation-for="EmailAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group mt-3">
-                <input type="submit" value="Submit Form" class="btn btn-success float-end" />
-            </div>
-        </form>
+           
+            <!-- Content -->
+
+          
+           
+        </div>
     </div>
-</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
 
 
+<script>
+    $(document).ready(function () {
+        $.validator.setDefaults({ ignore: [] });
+    });
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    function clearForm() {
+        // Get the form element by its ID
+        var form = document.getElementById("myForm");
+
+        // Reset the form to clear the inputs
+        form.reset();
+    }
+
+</script>

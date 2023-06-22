@@ -1,105 +1,203 @@
 ﻿@model PermitToWorkSystem.Models.PermitToWorkForm
 
-@{
-    ViewData["Title"] = "PermitToWorkDetails";
-}
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2 cust sidebar-divider">
+                <div class="pt-2 ml-0">
+                    <img src="/images/SP.png" width="80" height="80" class="color-change" alt="Company Logo">
+                </div>
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-user mr-2"></i>Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-file-alt mr-2"></i>Work Permit Application
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-envelope mr-2"></i>Emails
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-cogs mr-2"></i>Account Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="border-1">
+                    <div class="flex-column align-items-center">
+                        Need help?
+                    </div>
+                    <p>Our support is here for you</p>
+                    <div class="btn btn-outline-dark">
+                        Get help
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-10">
+                <nav class="navbar navbar-expand-lg justify-content-end">
+                    <a class="navbar-brand cust" href="#">
+                        <span class="notification-icon">
+                            <i class="fas fa-bell"></i>
+                        </span>
+                        Ndefo Chuks
+                        <span class="profile-icon">
+                            <img src="/images/px.png" width="30" height="30" alt="Company Logo">
+                        </span>
+
+                    </a>
+                </nav>
+                <hr />
+                <div class="col-md-10">
+                        <div asp-validation-summary="None" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-md-12">
 
 
-<div class="text-white">
-    <h4 class="text-capitalize">Permit To Work Form submited by <span class="btn btn-info">@Model.Company </span>with JSA number<span class="badge text-danger text-uppercase">@Model.JSA_NO</span> </h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-           @* @Html.DisplayNameFor(model => model.Project)*@
-            Project
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Project)
-        </dd>
-        <dt class = "col-sm-2">
-           @* @Html.DisplayNameFor(model => model.LocationOfWork)*@
-            Location Of Work
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LocationOfWork)
-        </dd>
-        <dt class = "col-sm-2">
-           @* @Html.DisplayNameFor(model => model.EquipmentDescription)*@
-            Equipment Description
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EquipmentDescription)
-        </dd>
-        <dt class = "col-sm-2">
-          @*  @Html.DisplayNameFor(model => model.Permit_Applicant)*@
-            Permit Applicant
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Permit_Applicant)
-        </dd>
-        <dt class = "col-sm-2">
-          @*  @Html.DisplayNameFor(model => model.Company)*@
-            Company
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Company)
-        </dd>
-        <dt class = "col-sm-2">
-           @* @Html.DisplayNameFor(model => model.JSA_NO)*@
-            JSA NO
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.JSA_NO)
-        </dd>
-        <dt class = "col-sm-2">
-            @*@Html.DisplayNameFor(model => model.Description_Of_Work)*@
-            Description Of Work
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description_Of_Work)
-        </dd>
-        <dt class = "col-sm-2">
-           @* @Html.DisplayNameFor(model => model.Duration_Of_Work)*@
-            Duration Of Work
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Duration_Of_Work)
-        </dd>
-        <dt class = "col-sm-2">
-            @*@Html.DisplayNameFor(model => model.StartDate)*@
-            StartDate
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StartDate)
-          
-        </dd>
-        <dt class = "col-sm-2">
-            EndDate
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-        <dt class = "col-sm-2">
-            StartTime
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StartTime)
-        </dd>
-        <dt class = "col-sm-2">
-            EndTime
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EndTime)
-        </dd>
-        <dt class = "col-sm-2">
-            Tools Equipment
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tools_Equipmet)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Index" asp-controller="SiteChecker" class="btn btn-success">Proceed To Approval</a> |
-    <a asp-action="FormRejected" asp-controller="SiteChecker" class="btn btn-success">Reject The Permit</a>
-</div>
+                                <div class="d-flex align-items-center justify-content-around">
+                                    <div class="progress-circle active">1</div>
+                                    <span style="font-size:10px;" class="mr-2">  Work permit</span>
+                                    <hr style="width:100px;" />
+                                    <div class="progress-circle2">2</div>
+                                    <span style="font-size:10px;">Additional work permit</span>
+                                    <hr style="width:100px;">
+                                    <div class="progress-circle2">3</div>
+                                    <span style="font-size:10px;">Special Equipment</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col">
+                                <h3><strong>Work Permit Application</strong></h3>
+                            </div>
+                            <div class="col text-right">
+                                Permit No: 02/30/2023
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col">
+                                <label> Last Name</label>
+                                <input asp-for="LastName" class="form-control" id="lastname" readonly>
+                               
+                            </div>
+                            <div class="col">
+                                <label> First Name</label>
+                                <input type="text" asp-for="FirstName" class="form-control" id="firstname" readonly>
+
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <label>Project Name</label>
+                                <input type="text" asp-for="ProjectName" class="form-control" id="projectname" readonly>
+                               
+                            </div>
+                            <div class="col">
+                                <label>JSA NO</label>
+                                <input type="text" asp-for="JSANO" class="form-control" id="jsano" readonly>
+                                
+                            </div>
+                            <div class="col">
+                                <label>Company Name</label>
+                                <input type="text" asp-for="CompanyName" class="form-control" id="companyname" readonly>
+                               
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <label> Company Address</label>
+                                <input type="text" asp-for="CompanyAddress" class="form-control" readonly>
+                            
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <label>Duration Of Work</label>
+                                <div class="input-group">
+                                    <input type="text" asp-for="Duration_Of_Work" class="form-control" readonly>
+                                    
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label>Start Date</label>
+                                <div class="input-group">
+                                    <input type="date" asp-for="StartDate" class="form-control" id="startdate" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label>End Date</label>
+                                <div class="input-group">
+                                    <input type="date" asp-for="EndDate" class="form-control" id="enddate" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col">
+                                <label> Type Of Work</label>
+                                <div class="input-group">
+                                    <input asp-for="Type_Of_Work" class="form-control" readonly>
+                                    
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label>Start Time</label>
+                                <div class="input-group">
+                                    <input type="time" asp-for="StartTime" class="form-control" id="starttime" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label>End Time</label>
+                                <div class="input-group">
+                                    <input type="time" asp-for="EndTime" class="form-control" id="endtime" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col">
+                                <label>Equipment To Be Used</label>
+                                <textarea type="text" asp-for="Equipment_To_Be_Used" class="form-control" id="equipment" readonly></textarea>
+                               
+                            </div>
+                            <div class="col">
+                                <label>Equipment Description</label>
+                                <textarea type="text" asp-for="Equipment_Description" class="form-control" id="description" readonly></textarea>
+                            </div>
+                        </div>
+
+                    <div>
+                        <a asp-action="Index" asp-controller="SiteChecker" class="btn btn-success">Proceed To Approval</a> |
+                        <a asp-action="FormRejected" asp-controller="SiteChecker" class="btn btn-danger">Reject The Permit</a>
+                    </div>
+                        </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using PermitToWorkSystem.Data.Enum;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace PermitToWorkSystem.Models
@@ -7,36 +8,37 @@ namespace PermitToWorkSystem.Models
     {
         [Key]
         public int PermitID { get; set; }
-        [Required]
-        public string Project { get; set; }
-        [Required]
-        public string LocationOfWork { get; set; }
-        [Required]
-        public string EquipmentDescription { get; set; }
-        [Required]
-        public string Permit_Applicant { get; set; }
-        [Required]
-        public string Company { get; set; }
+        
+        public string LastName { get; set; }
+        
+        public string FirstName { get; set; }
+        
+        public string ProjectName { get; set; }
+        
+        public string JSANO { get; set; }
+        
+        public string CompanyName { get; set; }
 
-        [Required]
-        public string JSA_NO { get; set; }
-        [Required]
-        public string Description_Of_Work { get; set; }
-        [Required]
-        public string Duration_Of_Work { get;set; }
-        [Required]
+        
+        public string CompanyAddress { get; set; }
+        
+        public DurationOfWork Duration_Of_Work { get; set; }
+        
+        public TypeOfWork Type_Of_Work { get; set; }
         public DateTime StartDate { get; set; }
 
-        [Required]
+        
         public DateTime EndDate { get; set; }
-        [Required]
+        
 
         public TimeSpan StartTime { get; set; }
-        [Required]
+        
         public TimeSpan EndTime { get; set; }
-        [Required]
-        public string Tools_Equipmet { get; set; }
+        
+        public string Equipment_To_Be_Used { get; set; }
+         
+        public string Equipment_Description { get; set; }
 
-        public string EmailAddress { get; set; }
+        public bool Accent { get; set; }    
     }
 }

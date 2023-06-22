@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Azure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -23,11 +24,13 @@ namespace PermitToWorkSystem.Controllers
         private readonly IPermitToWorkService _permitToWorkService;
         private readonly IEmailService _mailService;
         private readonly IEncryptDecryptService _encrypt;
-        public PermitToWorkFormController(IPermitToWorkService permitToWorkService, IEmailService mailService, IEncryptDecryptService encrypt)
+        private readonly INotyfService _notfy;
+        public PermitToWorkFormController(IPermitToWorkService permitToWorkService, IEmailService mailService, IEncryptDecryptService encrypt, INotyfService notyf)
         {
             _permitToWorkService = permitToWorkService;
             _mailService = mailService;
            _encrypt = encrypt;
+            _notfy = notyf;
         }
 
         public IActionResult Create()
@@ -47,15 +50,15 @@ namespace PermitToWorkSystem.Controllers
             }
 
             var res = await _permitToWorkService.AddPermitToWorkAsync(permitToWorkVM);
-
+            
             // Encrypt the ID using AES
             var encryptedID = _encrypt.EncryptID(res.PermitID);
 
             var baseUrl = $"https://localhost:7269/PermitToWorkForm/PermitToWorkDetails/{encryptedID}";
             var link = $"{baseUrl}";
-            var emailRequest = new EmailMessage(new string[] { ApproverEmail }, $"Permit To Work Request From {permitToWorkVM.Company}", $"Use this link to view the request: {link}");
+            var emailRequest = new EmailMessage(new string[] { ApproverEmail }, $"Permit To Work Request From {permitToWorkVM.CompanyName}", $"Use this link to view the request: {link}");
             await _mailService.SendEmailAsync(emailRequest);
-
+           
             return RedirectToAction(nameof(FormSubmitted));
         }
 
@@ -82,11 +85,14 @@ namespace PermitToWorkSystem.Controllers
 
             var permDetail = await _permitToWorkService.GetApplicantByIdAsync(permitID);
             return View(permDetail);
+
+           
         }
 
       
-        public async Task<IActionResult> FormSubmitted()
+        public IActionResult FormSubmitted()
         {
+            _notfy.Success("Your Request to work permit has been sent successfully to the next level Approval.", 10);
             return View();
         }
     }

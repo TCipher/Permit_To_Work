@@ -1,10 +1,92 @@
-﻿<div class="row text-white">
-<div class="col-md-6 offset-3 alert alert-success text-success">
-    <h2>Form Submitted Successfully</h2>
-    <p>Your PermIt to work form has been submitted for further approval</p>
-    <p>NOTE: Review And Approval takes Three(3) working days. The status will be communicated to you via Email</p>
+﻿@{
+    Layout = "_Layout2";
+}
 
-    <hr />
-    <p>Thank You</p>
-</div>
-</div>
+<body>
+    <nav class="navbar navbar-expand-lg justify-content-end">
+        <a class="navbar-brand cust" href="#">
+            <span class="notification-icon">
+                <i class="fas fa-bell"></i>
+            </span>
+            Ndefo Chuks
+            <span class="profile-icon">
+                <img src="/images/px.png" width="30" height="30" alt="Company Logo">
+            </span>
+        </a>
+    </nav>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <div class="col-md-2 sidebar-divider cust ">
+                <div class="pt-2 ml-0">
+                    <img src="/images/SP.png" width="80" height="80" class="color-change" alt="Company Logo">
+                </div>
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-user mr-2"></i>Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-file-alt mr-2"></i>Work Permit Application
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-envelope mr-2"></i>Emails
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-cogs mr-2"></i>Account Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="border-1 align-content-center mt-5">
+                    <div class="flex-column align-items-center">
+                        Need help?
+                    </div>
+                    <p>Our support is here for you</p>
+                    <div class="btn btn-outline-dark">
+                        Get help
+                    </div>
+                </div>
+            </div>
+            <!-- Content -->
+            <div class="col-md-8 offset-1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                        <div class="d-flex align-items-center justify-content-around">
+                            <div class="progress-circle2">1</div>
+                            <span style="font-size:10px;" class="mr-2">Work permit</span>
+                            <hr style="width:100px;">
+                            <div class="progress-circle">2</div>
+                            <span style="font-size:10px;">Form Sent For Reveiw</span>
+                            <hr style="width:100px;">
+                            <div class="progress-circle2">3</div>
+                            <span style="font-size:10px;">Special Equipment</span>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>

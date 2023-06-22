@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Mvc;
 using PermitToWorkSystem.Data;
 using PermitToWorkSystem.Data.IServices;
 using PermitToWorkSystem.Data.Service;
@@ -13,15 +14,20 @@ namespace PermitToWorkSystem.Controllers
         private readonly ISiteCheckerService _siteCheckerService;
         private readonly IEmailService _mailService;
         private readonly IPermitToWorkService _permitToWorkService;
-        public SiteCheckerController(ISiteCheckerService siteCheckerService, IEmailService mailService, IPermitToWorkService permitToWorkService)
+        private readonly INotyfService _notfy;
+        public SiteCheckerController(ISiteCheckerService siteCheckerService, IEmailService mailService, IPermitToWorkService permitToWorkService, INotyfService notyf)
         {
             _siteCheckerService = siteCheckerService;
             _mailService = mailService;
             _permitToWorkService = permitToWorkService;
+            _notfy = notyf;
+
         }
 
         public IActionResult Index()
         {
+            _notfy.Success("Your Request to work permit has been Approved .", 10);
+           
             return View();
         }
 
@@ -64,13 +70,14 @@ namespace PermitToWorkSystem.Controllers
             return RedirectToAction(nameof(FormSubmitted));
         }
 
-        public async Task<IActionResult> FormRejectedVeiw()
+        public IActionResult FormRejectedVeiw()
         {
+            _notfy.Error("Your Request to work permit was Rejected. please call (234)768430734 for more details");
 
             return View();
 
         }
-        public async Task<IActionResult> FormSubmitted()
+        public IActionResult FormSubmitted()
         {
 
             return View();

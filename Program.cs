@@ -1,3 +1,4 @@
+using AspNetCoreHero.ToastNotification;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -21,6 +22,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
 });
+builder.Services.AddNotyf(config =>
+{
+    config.DurationInSeconds = 1000;
+    config.IsDismissable = true;
+    config.Position = NotyfPosition.BottomCenter;
+    });
 builder.Services.AddScoped<IPermitToWorkService, PermitToWorkService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddSingleton<IEncryptDecryptService, EncryptDecryptService>();
@@ -48,6 +55,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=PermitToWorkForm}/{action=Create}/{id?}");
 
 app.Run();

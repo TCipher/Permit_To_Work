@@ -1,4 +1,4 @@
-﻿
+﻿@*
 <div class="row text-white">
 <div class="col-md-6 offset-3 alert alert-success text-success">
     <h2>Sorry we cannot approve your Permit To work request</h2>
@@ -6,4 +6,216 @@
     <hr />
     <p>Thank You</p>
 </div>
-</div>
+</div>*@
+@*@model PermitToWorkSystem.Data.ViewModel.SiteCheckerVM
+
+<form class="text-white" asp-action="Index">
+    <div class="form-group">
+        <label for="isolation">1. Isolation of Hazardous Energy? (Electrical, Mechanical, Equipment-LOTO)</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="isolation" name="isolation" asp-for="Isolation">
+            <label class="form-check-label" for="isolation">Yes</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bypass">2. Bypassing Critical Protections? (All bypasses must be notified)</label>
+        <textarea class="form-control" id="bypass" name="bypass" rows="3" asp-for="Bypass"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="moc">Management of Change (MOC) Approved</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="mocYes" name="moc" value="yes" asp-for="MOC">
+            <label class="form-check-label" for="mocYes">Yes</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="mocNo" name="moc" value="no" asp-for="MOC">
+            <label class="form-check-label" for="mocNo">No</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="access">3. Provide Access? (e.g., Ladder, Scaffolding)</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="access" name="access" asp-for="Access">
+            <label class="form-check-label" for="access">Yes</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="barricade">4. Barricade/Restrict Access? (Road Closure, Confined Space Entry, etc)</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="barricade" name="barricade" asp-for="Barricade">
+            <label class="form-check-label" for="barricade">Yes</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="criticalLift">5. Critical Lift? (Attach Rigging Diagram and Critical Lift Plan)</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="criticalLift" name="criticalLift" asp-for="CriticalLift">
+            <label class="custom-file-label" for="criticalLift">Choose file</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nightWork">6. Night Work Special Lighting (Hazardous Location rated)?</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="nightWork" name="nightWork" asp-for="NightWork">
+            <label class="form-check-label" for="nightWork">Yes</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="jsa">7. JSA Reviewed and confirmed Adequate? (Attach to Permit)</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="jsa" name="jsa" asp-for="JSA">
+            <label class="custom-file-label" for="jsa">Choose file</label>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="specialRequirements">8. Other Special Requirement? (Specify)</label>
+        <textarea class="form-control" id="specialRequirements" name="specialRequirements" rows="3" asp-for="SpecialRequirements"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="gasTesting">9. Gas Testing Requirements (To be completed by a Gas tester and Result verified by Permit Approver)</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="gasTestingNotRequired" name="gasTesting" value="notRequired" asp-for="GasTesting">
+            <label class="form-check-label" for="gasTestingNotRequired">Not Required</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="gasTestingInitial" name="gasTesting" value="initial" asp-for="GasTesting">
+            <label class="form-check-label" for="gasTestingInitial">Initial</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="gasTestingHourly" name="gasTesting" value="hourly" asp-for="GasTesting">
+            <label class="form-check-label" for="gasTestingHourly">Hourly</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="gasTestingEvery" name="gasTesting" value="every" asp-for="GasTesting">
+            <label class="form-check-label" for="gasTestingEvery">Every ...........Hrs</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="gasTestingResult">Gas Testing Result</label>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Time</th>
+                    <th scope="col">LEL 0%</th>
+                    <th scope="col">O2 19.5 - 23%</th>
+                    <th scope="col">H2S ≤5 (ppm)</th>
+                    <th scope="col">CO ppm</th>
+                    <th scope="col">Others e.g., Benzene Mercury</th>
+                    <th scope="col">Instrument #</th>
+                    <th scope="col">Gas Tester (GT) Name & Signature</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="form-control" name="Time" asp-for="Time"></td>
+                    <td><input type="text" class="form-control" name="LEL" asp-for="LEL"></td>
+                    <td><input type="text" class="form-control" name="O2" asp-for="O2"></td>
+                    <td><input type="text" class="form-control" name="H2S" asp-for="H2S"></td>
+                    <td><input type="text" class="form-control" name="CO" asp-for="CO"></td>
+                    <td><input type="text" class="form-control" name="Others" asp-for="Others"></td>
+                    <td><input type="text" class="form-control" name="InstrumentNumber" asp-for="InstrumentNumber"></td>
+                    <td><input type="text" class="form-control" name="GasTesterName" asp-for="GasTesterName"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button type="submit" class="btn btn-primary" asp-action="Index">Approve</button>
+</form>
+
+
+
+
+*@
+@{
+    Layout = "_Layout2";
+}
+
+<body>
+    <nav class="navbar navbar-expand-lg justify-content-end">
+        <a class="navbar-brand cust" href="#">
+            <span class="notification-icon">
+                <i class="fas fa-bell"></i>
+            </span>
+            Ndefo Chuks
+            <span class="profile-icon">
+                <img src="/images/px.png" width="30" height="30" alt="Company Logo">
+            </span>
+        </a>
+    </nav>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <div class="col-md-2 sidebar-divider cust ">
+                <div class="pt-2 ml-0">
+                    <img src="/images/SP.png" width="80" height="80" class="color-change" alt="Company Logo">
+                </div>
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-user mr-2"></i>Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-file-alt mr-2"></i>Work Permit Application
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-envelope mr-2"></i>Emails
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-cogs mr-2"></i>Account Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sidebar-item text-dark" href="#">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="border-1 align-content-center mt-5">
+                    <div class="flex-column align-items-center">
+                        Need help?
+                    </div>
+                    <p>Our support is here for you</p>
+                    <div class="btn btn-outline-dark">
+                        Get help
+                    </div>
+                </div>
+            </div>
+            <!-- Content -->
+            <div class="col-md-8 offset-1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                        <div class="d-flex align-items-center justify-content-around">
+                            <div class="progress-circle2">1</div>
+                            <span style="font-size:10px;" class="mr-2">Work permit</span>
+                            <hr style="width:100px;">
+                            <div class="progress-circle">2</div>
+                            <span style="font-size:10px;">Form Sent For Reveiw</span>
+                            <hr style="width:100px;">
+                            <div class="progress-circle2">3</div>
+                            <span style="font-size:10px;">Special Equipment</span>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>

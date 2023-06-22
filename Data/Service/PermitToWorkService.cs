@@ -18,20 +18,21 @@ namespace PermitToWorkSystem.Data.Service
         {
             var newPermit = new PermitToWorkForm()
             {
-                Project = data.Project,
-                LocationOfWork = data.LocationOfWork,
-                EquipmentDescription = data.EquipmentDescription,
-                Permit_Applicant = data.Permit_Applicant,
-                Company = data.Company,
-                JSA_NO = data.JSA_NO,
-                Description_Of_Work = data.Description_Of_Work,
+                LastName = data.LastName,
+                FirstName = data.FirstName,
+                ProjectName = data.Project_Name,
+                CompanyAddress = data.CompanyAddress,
+                CompanyName = data.CompanyName,
+                JSANO = data.JSANO,
+                Equipment_Description = data.Equipment_Description,
                 Duration_Of_Work = data.Duration_Of_Work,
                 StartDate = data.StartDate,
                 EndDate = data.EndDate,
                 StartTime = data.StartTime,
                 EndTime = data.EndTime,
-                Tools_Equipmet = data.Tools_Equipmet,
-                EmailAddress = data.EmailAddress
+                Equipment_To_Be_Used = data.Equipment_To_Be_Used,
+                Accent = data.Accent,
+                Type_Of_Work = data.Type_OF_Work
                 
             };
             await _context.permitToWorkForm.AddAsync(newPermit);

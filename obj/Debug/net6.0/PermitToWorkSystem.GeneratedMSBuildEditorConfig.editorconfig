@@ -5,72 +5,77 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PermitToWorkSystem
 build_property.RootNamespace = PermitToWorkSystem
-build_property.ProjectDir = C:\Users\Decagon\source\repos\Tolarem\PermitToWorkSystem\
+build_property.ProjectDir = C:\Users\HP\source\repos\Permit_To_Work\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Decagon\source\repos\Tolarem\PermitToWorkSystem
+build_property.MSBuildProjectDirectory = C:\Users\HP\source\repos\Permit_To_Work
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/Home/Index.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/Home/Privacy.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/PermitToWorkForm/Create.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/PermitToWorkForm/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWl0VG9Xb3JrRm9ybVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/PermitToWorkForm/FormSubmitted.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/PermitToWorkForm/FormSubmitted.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWl0VG9Xb3JrRm9ybVxGb3JtU3VibWl0dGVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/PermitToWorkForm/Index.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/PermitToWorkForm/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWl0VG9Xb3JrRm9ybVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/PermitToWorkForm/PermitToWorkDetails.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/PermitToWorkForm/PermitToWorkDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWl0VG9Xb3JrRm9ybVxQZXJtaXRUb1dvcmtEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/Shared/Error.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/SiteChecker/Approved.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/SiteChecker/Approved.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2l0ZUNoZWNrZXJcQXBwcm92ZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/SiteChecker/FormRejectedVeiw.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/SiteChecker/FormRejectedVeiw.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2l0ZUNoZWNrZXJcRm9ybVJlamVjdGVkVmVpdy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/SiteChecker/FormSubmitted.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/SiteChecker/FormSubmitted.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2l0ZUNoZWNrZXJcRm9ybVN1Ym1pdHRlZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/SiteChecker/Index.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/SiteChecker/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2l0ZUNoZWNrZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/_ViewImports.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/_ViewStart.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Decagon/source/repos/Tolarem/PermitToWorkSystem/Views/Shared/_Layout.cshtml]
+[C:/Users/HP/source/repos/Permit_To_Work/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9h5dl1masq
+
+[C:/Users/HP/source/repos/Permit_To_Work/Views/Shared/_Layout2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-sleu2zg7vu
